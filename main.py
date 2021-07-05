@@ -28,10 +28,8 @@ if len(sys.argv) == 2 and sys.argv[1].isnumeric():
                 t_y = int(tracked_position.top())
                 t_w = int(tracked_position.width())
                 t_h = int(tracked_position.height())
-                cv2.rectangle(frame, (t_x, t_y),
-                                    (t_x + t_w , t_y + t_h),
-                                    (0,255,0) ,2)
-                cv2.putText(frame,"Face (Confidinse {}%)".format(round(trackingQuality)),(t_x,t_y - 20),cv2.FONT_HERSHEY_SIMPLEX,1,(0,225,0),2)
+                cv2.rectangle(frame, (t_x, t_y),(t_x + t_w , t_y + t_h),(0,255,0) ,2)
+                cv2.putText(frame,"{}% Human Face".format(round(trackingQuality)),(t_x,t_y - 20),cv2.FONT_HERSHEY_SIMPLEX,1,(0,225,0),2)
             else:
                 trackingFace = 0
         cv2.imshow("Camera (Channel : "+sys.argv[1]+")",frame)
